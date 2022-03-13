@@ -11,6 +11,7 @@
         android:theme="@style/Theme.MyApplication">
         <activity
             android:name=".FirstActivity"
+            android:label="This is FirstActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
