@@ -17,4 +17,9 @@ class FirstActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("FirstActivity", "onRestart")
+    }
 }

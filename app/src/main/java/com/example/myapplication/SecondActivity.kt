@@ -17,4 +17,9 @@ class SecondActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("SecondActivity", "onDestroy")
+    }
 }
