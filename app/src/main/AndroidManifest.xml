@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".DialogActivity"
+            android:exported="false" />
+        <activity
             android:name=".NormalActivity"
             android:exported="false" />
         <activity
