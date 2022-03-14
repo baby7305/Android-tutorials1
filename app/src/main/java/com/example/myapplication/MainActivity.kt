@@ -13,6 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d(tag, "onCreate")
         setContentView(R.layout.activity_main)
+        if (savedInstanceState != null) {
+            val tempData = savedInstanceState.getString("data_key")
+            if (tempData != null) {
+                Log.d(tag, tempData)
+            }
+        }
         val startNormalActivity: Button = findViewById(R.id.startNormalActivity)
         startNormalActivity.setOnClickListener {
             val intent = Intent(this, NormalActivity::class.java)
@@ -53,5 +59,11 @@ class MainActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         Log.d(tag, "onRestart")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val tempData = "Something you just typed"
+        outState.putString("data_key", tempData)
     }
 }
