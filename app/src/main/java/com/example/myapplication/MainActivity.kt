@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = FruitAdapter(this, R.layout.fruit_item, fruitList)
         val listView: ListView = findViewById(R.id.listView)
         listView.adapter = adapter
-        listView.setOnItemClickListener { parent, view, position, id ->
+        listView.setOnItemClickListener { _, _, position, _ ->
             val fruit = fruitList[position]
             Toast.makeText(this, fruit.name, Toast.LENGTH_SHORT).show()
         }
