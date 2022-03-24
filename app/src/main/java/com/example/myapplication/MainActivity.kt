@@ -3,6 +3,7 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = FruitAdapter(this, R.layout.fruit_item, fruitList)
         val listView: ListView = findViewById(R.id.listView)
         listView.adapter = adapter
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val fruit = fruitList[position]
+            Toast.makeText(this, fruit.name, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initFruits() {
