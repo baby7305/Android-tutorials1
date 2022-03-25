@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class FruitAdapter(val fruitList: List<Fruit>) : RecyclerView.Adapter<FruitAdapter.ViewHolder>() {
@@ -22,6 +23,24 @@ class FruitAdapter(val fruitList: List<Fruit>) : RecyclerView.Adapter<FruitAdapt
         val fruit = fruitList[position]
         holder.fruitImage.setImageResource(fruit.imageId)
         holder.fruitName.text = fruit.name
+        holder.itemView.setOnClickListener {
+            val fruit = fruitList[position]
+            Toast.makeText(
+                holder.itemView.context,
+                "you clicked view ${fruit.name}",
+                Toast.LENGTH_SHORT
+            )
+                .show()
+        }
+        holder.fruitImage.setOnClickListener {
+            val fruit = fruitList[position]
+            Toast.makeText(
+                holder.itemView.context,
+                "you clicked image ${fruit.name}",
+                Toast.LENGTH_SHORT
+            )
+                .show()
+        }
     }
 
     override fun getItemCount() = fruitList.size
